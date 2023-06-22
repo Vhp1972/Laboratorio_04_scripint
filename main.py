@@ -5,12 +5,11 @@ from selenium.webdriver.common.by import By
 
 from telegram_bot import TelegramBot
 from mongodb import MongoDB
+from datetime import date
 chrome_driver = webdriver.Chrome()
 
 bot = TelegramBot()
 db = MongoDB()
-
-
 chrome_driver.get("https://www.wikipedia.org/")
 print(chrome_driver.title)
 

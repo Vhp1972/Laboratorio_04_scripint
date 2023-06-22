@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+
 class MongoDB:
     def __init__(self):
         mongo_user = os.getenv("MONGO_USER")
@@ -13,6 +14,7 @@ class MongoDB:
         self.collection = os.getenv("COLLECTION_NAME")
         mongo_hostname = os.getenv("MONGO_HOSTNAME")
 
+       # uri = f"mongodb+srv://{mongo_user}:{mongo_pass}@{mongo_hostname}/?retryWrites=true&w=majority"
         uri = f"mongodb+srv://{mongo_user}:{mongo_pass}@{mongo_hostname}/?retryWrites=true&w=majority"
         # Create a new client and connect to the server
         self.client = MongoClient(uri)
@@ -31,6 +33,7 @@ class MongoDB:
             "content": text,
             "date": datetime.datetime.now()
         })
+
 
 if __name__ == "__main__":
     m = MongoDB()
